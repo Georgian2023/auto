@@ -1,6 +1,5 @@
 package pages1;
 
-import jdk.internal.org.jline.utils.Log;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.slf4j.Logger;
@@ -16,12 +15,23 @@ public class basePage {
         String url = "https://demo.automationtesting.in/Index.html";
         driver.get(url);
 
-        Log.info("Open browser maximaze");
+        LOG.info("Open browser maximaze");
         driver.manage().window().maximize();
 
     }
     public static void tearDown(){
         LOG.info("Close the browser");
         driver.quit();
+    }
+
+    public static String returnBaseUrl(){
+        return "https://demo.automationtesting.in/Index.html";
+    }
+
+    public static String getBaseUrl (){
+        String BaseUrl = returnBaseUrl();
+        String index = BaseUrl.replace("Index");
+        return index;
+
     }
 }
