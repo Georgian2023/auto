@@ -30,7 +30,7 @@ public class SignInPage extends basePage {
     private By signInEmailField = By.xpath("// input[@type = 'text'");
     private By signInPasswordField = By.xpath("// input[@type = 'password'");
     private By enterButton = By.id("enterbtn");
-    private By errorMsg = By.id("errormsg");
+    private By errorMsg = By.id("errorMsg");
 
 
 
@@ -90,9 +90,9 @@ public class SignInPage extends basePage {
         driver.findElement(enterButton).click();
     }
 
-    public boolean isErrorMessageDisplayed() {
+    public boolean isErrorMessageDisplayed(){
         LOG.info("Verify if error message is displayed");
-        return.driver.findElement();
+        return driver.findElement(errorMsg).isDisplayed();
     }
 
 

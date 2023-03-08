@@ -1,16 +1,20 @@
 package tests.SignInTest;
+
+import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import tests.baseTest;
 
+import static pages1.basePage.driver;
+import static pages1.basePage.getBaseUrl;
 
 
-import java.util.logging.Logger;
+
 
 public class SignUpTest extends baseTest{
-    private static final Logger LOG = (Logger) LoggerFactory.getLogger(SignUpTest.class);
-    private String newUrl = getBaseUrl(); + "Index.html"
+    private static final Logger LOG = LoggerFactory.getLogger(SignUpTest.class);
+    private String newUrl = getBaseUrl()+ "Index.html";
 
 
     @Test

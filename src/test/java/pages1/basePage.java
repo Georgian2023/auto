@@ -29,9 +29,12 @@ public class basePage {
     }
 
     public static String getBaseUrl (){
-        String BaseUrl = returnBaseUrl();
-        String index = BaseUrl.replace("Index");
-        return index;
+        String baseUrl = returnBaseUrl();
+        if (baseUrl != null){
+            return baseUrl.replace("Index.html", "");
 
     }
+        return baseUrl;
+
+}
 }
