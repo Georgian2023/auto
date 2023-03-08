@@ -22,7 +22,7 @@ public class SignUpTest extends baseTest{
         String email = "Eail@example.com";
         String password = "12345";
 
-
+        LOG.info("Verify UI element");
         LOG.info("Navigate to sign up page");
         driver.get(newUrl);
         Assert.assertTrue(signInPage.isLogoDysplayed(),  "logo is not displayed");
@@ -40,6 +40,12 @@ public class SignUpTest extends baseTest{
 
         LOG.info("Verifyng if error message is dysplayed");
         Assert.assertTrue(signInPage.isErrorMessageDisplayed(), "Error message is not displayed");
+
+        LOG.info("Navigate back");
+        signInPage.clickBack();
+
+        LOG.info("Skip sign in button");
+        signInPage.clickSkipSignInButton();
 
 
 

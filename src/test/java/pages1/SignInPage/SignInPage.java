@@ -94,6 +94,10 @@ public class SignInPage extends basePage {
         LOG.info("Verify if error message is displayed");
         return driver.findElement(errorMsg).isDisplayed();
     }
+    public void clickBack(){
+        LOG.info("Clicking back the browser");
+        driver.navigate().back();
+    }
 
 
 }
