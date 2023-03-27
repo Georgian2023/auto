@@ -10,6 +10,7 @@ public class baseTest {
 
     public SignInPage signInPage = SignInPage.getInstance();
     public RegisterPage RegisterPage = pages1.RegisterPage.RegisterPage.getInstance();
+    public
 
     @BeforeSuite
     public void init(){
