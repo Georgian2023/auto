@@ -12,6 +12,9 @@ public class SwitchToAlertTest extends baseTest {
     private static final Logger LOG = LoggerFactory.getLogger(SwitchToAlertTest.class);
     private String newUrl = getBaseUrl() + "Alerts.html";
 
+    public static SwitchToAlertTest getInstance() {
+    }
+
     @Test
     public void checkAlerts() {
         driver.get(newUrl);

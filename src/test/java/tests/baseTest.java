@@ -2,10 +2,11 @@ package tests;
 
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
+import pages1.BasePage;
 import pages1.RegisterPage.RegisterPage;
 import pages1.SignInPage.SignInPage;
 import pages1.SwitchToPage.SwitchToAlertPage;
-import pages1.basePage;
+import pages1.BasePage;
 import tests.SwitchToTest.SwitchToAlertTest;
 
 public class baseTest {
@@ -18,12 +19,12 @@ public class baseTest {
 
     @BeforeSuite
     public void init(){
-        basePage.setUp();
+        BasePage.setUp();
     }
 
     @AfterSuite
     public void tearDown() {
-        basePage.tearDown();
+        BasePage.tearDown();
     }
 
 }

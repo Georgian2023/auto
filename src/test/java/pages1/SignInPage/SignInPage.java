@@ -4,7 +4,7 @@ import org.openqa.selenium.By;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import pages1.BasePage;
-import pages1.BasePage;
+
 
 public class SignInPage extends BasePage {
     public static final Logger LOG = LoggerFactory.getLogger(SignInPage.class);
