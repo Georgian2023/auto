@@ -1,11 +1,12 @@
-package pages1.SignInPage;
+package pages.SignInPage;
 
 import org.openqa.selenium.By;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import pages1.basePage;
+import pages1.BasePage;
+import pages1.BasePage;
 
-public class SignInPage extends basePage {
+public class SignInPage extends BasePage {
     public static final Logger LOG = LoggerFactory.getLogger(SignInPage.class);
     public static SignInPage instance;
 
@@ -19,89 +20,81 @@ public class SignInPage extends basePage {
         return instance;
     }
 
-    //    homepage
-    private final By logo = By.id("logo");
-    private final By SignInButton = By.id("btn1");
-    private final By skipSignInButton = By.id("btn2");
-    private final By emailField = By.id("email");
-    private final By nextButton = By.id("enterimg");
+    //Homepage
+    private By logo = By.id("logo");
+    private By signInButton = By.id("btn1");
+    private By skipSignInButton = By.id("btn2");
+    private By emailField = By.id("email");
+    private By nextButton = By.id("enterimg");
 
-    //    sign in
-    private By signInEmailField = By.xpath("// input[@type = 'text'");
-    private By signInPasswordField = By.xpath("// input[@type = 'password'");
+    //SignIn
+    private By signInEmailField = By.xpath("//input[@type='text']");
+    private By signInPasswordField = By.xpath("//input[@type='password']");
     private By enterButton = By.id("enterbtn");
-    private By errorMsg = By.id("errorMsg");
+    private By errorMsg = By.id("errormsg");
 
-
-
-    public boolean isLogoDysplayed() {
-        LOG.info("Verify if Logo is Displayed");
+    public boolean isLogoDisplayed() {
+        LOG.info("Verify if Logo is displayed");
         return driver.findElement(logo).isDisplayed();
     }
 
     public boolean isSignInButtonDisplayed() {
-        LOG.info("Verify if Sign in Button is Displayed");
-        return driver.findElement(SignInButton).isDisplayed();
-    }
-
-    public boolean isskipSignInButtonDisplayed() {
-        LOG.info("Verify if if skip Sign in Button is Displayed");
-        return driver.findElement(skipSignInButton).isDisplayed();
-    }
-
-    public boolean isFieldEmailDispayed() {
-        LOG.info("Type in email Field");
-        return driver.findElement(emailField).isDisplayed();
+        LOG.info("Verify if 'Sign in' is displayed");
+        return driver.findElement(signInButton).isDisplayed();
     }
 
     public void clickSignInButton() {
-        LOG.info("Click sign in button");
-        driver.findElement(SignInButton).click();
+        LOG.info("Click 'Sign in' button");
+        driver.findElement(signInButton).click();
+    }
 
+    public boolean isSkipSignInButtonDisplayed() {
+        LOG.info("Verify if 'Skip Sign in' is displayed");
+        return driver.findElement(skipSignInButton).isDisplayed();
     }
 
     public void clickSkipSignInButton() {
-        LOG.info("Click Skip sign in button");
+        LOG.info("Click 'Sign in' button");
         driver.findElement(skipSignInButton).click();
     }
 
-    public void typeInemailFiled(String email) {
-        LOG.info("Type in email Field");
-        driver.findElement(emailField).sendKeys();
+    public boolean isEmailFieldDisplayed() {
+        LOG.info("Verify if Email field is displayed");
+        return driver.findElement(emailField).isDisplayed();
+    }
+
+    public void typeInEmailField(String email) {
+        LOG.info("Check email field");
+        driver.findElement(emailField).sendKeys(email);
     }
 
     public void clickNextButton() {
-        LOG.info("Click Next Button");
+        LOG.info("Click Next button");
         driver.findElement(nextButton).click();
-
     }
 
-    public void typeInSihnEmailField(String email) {
-        LOG.info("Typing email adress in 'email' field");
+    public void typeInSignInEmailField(String email) {
+        LOG.info("Typing email address in 'Email' field");
         driver.findElement(signInEmailField).sendKeys(email);
     }
 
-    public void typeInSigninPasswordField(String password) {
-        LOG.info("Typing email adress in 'password' field");
+    public void typeInSignInPasswordField(String password) {
+        LOG.info("Typing email address in 'Email' field");
         driver.findElement(signInPasswordField).sendKeys(password);
     }
+
     public void clickEnterButton() {
-        LOG.info(" Click the 'Enter' button");
+        LOG.info("Click the 'Enter' button");
         driver.findElement(enterButton).click();
     }
 
-    public boolean isErrorMessageDisplayed(){
-        LOG.info("Verify if error message is displayed");
+    public boolean isErrorMessageDisplayed() {
+        LOG.info("Verifying if error message is displayed");
         return driver.findElement(errorMsg).isDisplayed();
     }
+
     public void clickBack(){
-        LOG.info("Clicking back the browser");
+        LOG.info("Clicking back in browser");
         driver.navigate().back();
     }
-
-
 }
-
-
-
-

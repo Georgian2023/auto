@@ -6,47 +6,76 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import tests.baseTest;
 
-import static pages1.basePage.driver;
-import static pages1.basePage.getBaseUrl;
+import static pages1.BasePage.driver;
+import static pages1.BasePage.getBaseUrl;
 
+public class RegisterTest extends baseTest {
+    private static final Logger LOG = LoggerFactory.getLogger(RegisterTest.class);
+    private String newUrl = getBaseUrl() + "Register.html";
 
-    public class RegisterPage extends baseTest {
-        private String newUrl = getBaseUrl() + "Register.html";
-        private final Logger LOG = LoggerFactory.getLogger(RegisterPage.class);
+    @Test
+    public void register() {
+        driver.get(newUrl);
 
-        @Test
-        public void register(Object day){
-            driver.get(newUrl);
-            String year = "1991";
-            String month ="May";
-            String Day = "01";
-            String password = "1234";
-            String secondpassword = "1234";
+        String firstName = "Darius";
+        String lAstName = "Fratutiu";
+        String language = "Romanian";
+        String adress = "Cluj, Strada Primaverii, Nt 407 J";
+        String email = "Automation7@domain.com";
+        String phone = "0748955748";
+        String skill = "Java";
+        String country = "India";
+        String year = "1991";
+        String month = "February";
+        String day = "7";
+        String pas = "parola";
+        String confirmPass = "parola";
 
-            LOG.info("Check title");
-            Assert.assertTrue(RegisterPage.isTitleDisplayed(),"Title is not displayed");
+        LOG.info("Check title");
+        Assert.assertTrue(| RegisterPage.isTitleDisplayed(), "Title is not displayed");
 
-            LOG.info("Check form title");
-            Assert.assertTrue(RegisterPage.isformTitle(),"Form title is not displayed");
+        LOG.info("Type in FullName");
+        RegisterPage.typeInFirstName(firstName);
+        RegisterPage.typeInLastName(lAstName);
 
-            LOG.info("Select date of birth");
-            RegisterPage.setDateOfBitrh(year,month,Day);
+        LOG.info("Type in Address");
+        RegisterPage.typeInAdress(adress);
 
-            LOG.info("First paswword");
-            RegisterPage.setPassword(password,secondpassword);
+        LOG.info("Type Email address");
+        RegisterPage.typeInEmailAddress(email);
 
-            LOG.info("Choose a picture");
-            RegisterPage.selectImage();
+        LOG.info("Type Phone NUmber");
+        RegisterPage.typeInPhoneUmber(phone);
 
-            LOG.info("Click the submit button");
-            RegisterPage.clickSubmitButton();
+        LOG.info("Select Gender");
+        RegisterPage.setMaleGender();
+        RegisterPage.setFemaleGender();
 
-            LOG.info("Click the refresh button");
-            RegisterPage.clickRefreshButton();
+        LOG.info("Select Hobbies");
+        RegisterPage.setCricket();
+        RegisterPage.seMovies();
+        RegisterPage.setHockey();
 
+        LOG.info("Select a Language");
+        RegisterPage.selectLanguage(language);
 
+        LOG.info("Select a Skill");
+        RegisterPage.setSkills(skill);
 
+        LOG.info("Select a Country");
+        RegisterPage.selectCountry(country);
 
+        LOG.info("Select Date of Birth");
+        RegisterPage.setDateOfBirth(year, month, day);
 
-        }
+        LOG.info("Set Password");
+        RegisterPage.setPassword(pas, confirmPass);
+
+        LOG.info("Choose a file");
+        RegisterPage.setChooseFile();
+
+        LOG.info("Click submit button");
+        RegisterPage.clickSubmitButton();
     }
+}
+

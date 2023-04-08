@@ -1,29 +1,29 @@
 package tests.SwitchToTest;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.testng.annotations.Test;
-import pages1.SwitchToPage.SwitchToAlertPage;
 import tests.baseTest;
 
-
+import static pages1.BasePage.driver;
+import static pages1.BasePage.getBaseUrl;
 
 public class SwitchToAlertTest extends baseTest {
-private String newUrl = getBaseUrl()+ "Alerts.html";
-@Test
-    public void checkAlerts(){
-    driver.get(newUrl);
-    String data = "mesaj";
+    private static final Logger LOG = LoggerFactory.getLogger(SwitchToAlertTest.class);
+    private String newUrl = getBaseUrl() + "Alerts.html";
 
-    LOG.info("Trigger alert and tape ok button");
-    switchToAlertPage.clickAlertTabWithOk();
+    @Test
+    public void checkAlerts() {
+        driver.get(newUrl);
+        String data = "Vine primavara!";
 
-    LOG.info("Trigger alert and tape cancel button");
-    switchToAlertPage.clickAlertWithCancel();
+        LOG.info("Trigger Alert and tap Ok button");
+        switchToAlertPage.clickAlertTabWithOk();
 
-    LOG.info("Trigger alert and send data");
-    switchToAlertPage.clickAlertTabWithTextBox(data);
+        LOG.info("Trigger Alert and tap Cancel button");
+        switchToAlertPage.clickAlertTabWithCancel();
 
-
+        LOG.info("Trigger Alert and Send Data");
+        switchToAlertPage.clickAlertTabWithTextBox(data);
     }
-
-
 }

@@ -6,52 +6,42 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import tests.baseTest;
 
-import static pages1.basePage.driver;
-import static pages1.basePage.getBaseUrl;
+import static pages1.BasePage.driver;
+import static pages1.BasePage.getBaseUrl;
 
-
-
-
-public class SignUpTest extends baseTest{
+public class SignUpTest extends baseTest {
     private static final Logger LOG = LoggerFactory.getLogger(SignUpTest.class);
-    private String newUrl = getBaseUrl()+ "Index.html";
-
+    private String newUrl = getBaseUrl() + "Index.html";
 
     @Test
     public void signUp() {
         String email = "Eail@example.com";
         String password = "12345";
-
-        LOG.info("Verify UI element");
-        LOG.info("Navigate to sign up page");
         driver.get(newUrl);
-        Assert.assertTrue(signInPage.isLogoDysplayed(),  "logo is not displayed");
-        Assert.assertTrue(signInPage.isFieldEmailDispayed(),  "Email is not displayed");
-        Assert.assertTrue(signInPage.isSignInButtonDisplayed(), "Sign in is not displayed");
-        Assert.assertTrue(signInPage.isskipSignInButtonDisplayed(), "Skip button is not displayed");
-        signInPage.clickSkipSignInButton();
 
-        LOG.info("Type an email and pass");
-        signInPage.typeInemailFiled(email);
-        signInPage.typeInSigninPasswordField(password);
+        LOG.info("Verify UI elements");
+        Assert.assertTrue(signInPage.isLogoDisplayed(), "Logo is not displayed");
+        Assert.assertTrue(signInPage.isEmailFieldDisplayed(), "Email is not displayed");
+        Assert.assertTrue(signInPage.isSignInButtonDisplayed(), "Sign in is not displayed");
+        Assert.assertTrue(signInPage.isSkipSignInButtonDisplayed(), "Skip Sign in is not displayed");
+
+        LOG.info("Navigate to Sign Up Page");
+        signInPage.clickSignInButton();
+
+        LOG.info("Type in email and pass");
+        signInPage.typeInSignInEmailField(email);
+        signInPage.typeInSignInPasswordField(password);
 
         LOG.info("Click 'Enter' button");
-        signInPage.clickNextButton();
+        signInPage.clickEnterButton();
 
-        LOG.info("Verifyng if error message is dysplayed");
+        LOG.info("Verifying if error message is displayed");
         Assert.assertTrue(signInPage.isErrorMessageDisplayed(), "Error message is not displayed");
 
         LOG.info("Navigate back");
         signInPage.clickBack();
 
-        LOG.info("Skip sign in button");
+        LOG.info("Click Skip SingIn button");
         signInPage.clickSkipSignInButton();
-
-
-
-
-
-
-
     }
 }
